@@ -17,19 +17,26 @@ class FirstComeFirstServe {
 		Scanner mys = new Scanner(System.in);
 		System.out.print("Enter total number of processes: ");
 		int numProcess = mys.nextInt();
-		if (numProcess <= 0)
+		if (numProcess <= 0) {
+			mys.close();
 			throw new NumberErrorException();
+		}
 		int arrivalTime[] = new int[numProcess];
 		int burstTime[] = new int[numProcess];
 		for (int i = 0; i < numProcess; i++) {
 			System.out.print("Enter Arrival time of P" + (i + 1) + ": ");
 			arrivalTime[i] = mys.nextInt();
-			if (arrivalTime[i] < 0)
+			if (arrivalTime[i] < 0) {
+				mys.close();
 				throw new NumberErrorException();
+			}
 			System.out.print("Enter Burst time of P" + (i + 1) + ": ");
 			burstTime[i] = mys.nextInt();
-			if (burstTime[i] < 0)
+			if (burstTime[i] < 0) {
+				mys.close();
 				throw new NumberErrorException();
+			}
+			mys.close();
 		}
 
 		int completionTime[] = new int[numProcess];
